@@ -1,0 +1,18 @@
+export { default as HomePage } from './HomePage';
+export { default as ProductsPage } from './ProductsPage';
+export { default as ProductDetailPage } from './ProductDetailPage';
+export { default as CartPage } from './CartPage';
+export { default as CheckoutPage } from './CheckoutPage';
+export { default as LoginPage } from './LoginPage';
+export { default as RegisterPage } from './RegisterPage';
+export { default as ForgotPasswordPage } from './ForgotPasswordPage';
+export { default as ProfilePage } from './ProfilePage';
+export { default as BookingPage } from './BookingPage';
+export { default as CategoryPage } from './CategoryPage';
+export { CategoriesPage } from './CategoriesPage';
+export { default as SearchPage } from './SearchPage';
+export { default as ContactPage } from './ContactPage';
+export { default as WishlistPage } from './WishlistPage';
+export { default as OAuthCallbackPage } from './OAuthCallbackPage';
+export { default as PaymentSuccessPage } from './PaymentSuccessPage';
+export { default as OrderDetailPage } from './OrderDetailPage';
