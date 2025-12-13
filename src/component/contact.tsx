@@ -4,71 +4,71 @@ import { Button } from '@/component/ui/button';
 import { Input } from '@/component/ui/input';
 import { Label } from '@/component/ui/label';
 import { Textarea } from '@/component/ui/textarea';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/component/ui/accordion';
+// import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/component/ui/accordion';
 import { useToast } from '@/hooks/use-toast';
 import { MapPin, Phone, Mail, Clock, Send, User } from 'lucide-react';
 
-const teamMembers = [
-    {
-        name: 'Sarah Johnson',
-        role: 'Founder & CEO',
-        image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400',
-        email: 'sarah@minimaxmall.com'
-    },
-    {
-        name: 'Michael Chen',
-        role: 'Head of Design',
-        image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400',
-        email: 'michael@minimaxmall.com'
-    },
-    {
-        name: 'Emily Rodriguez',
-        role: 'Customer Success Manager',
-        image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400',
-        email: 'emily@minimaxmall.com'
-    },
-    {
-        name: 'David Thompson',
-        role: 'Operations Director',
-        image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400',
-        email: 'david@minimaxmall.com'
-    }
-];
-
-const faqs = [
-    {
-        question: 'What are your shipping options?',
-        answer: 'We offer standard shipping (5-7 business days) and express shipping (2-3 business days). Free shipping is available on orders over $50.'
-    },
-    {
-        question: 'What is your return policy?',
-        answer: 'We accept returns within 30 days of purchase. Items must be unused and in original packaging. Return shipping costs may apply unless the item is defective.'
-    },
-    {
-        question: 'Do you offer custom tailoring services?',
-        answer: 'Yes! We offer professional tailoring services for custom-fitted clothing. Visit our Booking page to schedule an appointment with our expert tailors.'
-    },
-    {
-        question: 'How can I track my order?',
-        answer: 'Once your order ships, you\'ll receive a tracking number via email. You can also check your order status in your profile under "Orders".'
-    },
-    {
-        question: 'What payment methods do you accept?',
-        answer: 'We accept all major credit cards (Visa, MasterCard, American Express), PayPal, and Apple Pay for your convenience.'
-    },
-    {
-        question: 'Do you have a physical store?',
-        answer: 'Yes, we have a showroom at our headquarters. Visit us at 123 Fashion Street, New York, NY 10001. We recommend booking an appointment for personalized service.'
-    },
-    {
-        question: 'How do I care for my tailored garments?',
-        answer: 'Each garment comes with specific care instructions. Generally, we recommend dry cleaning for tailored pieces. Avoid machine washing unless specified on the care label.'
-    },
-    {
-        question: 'Can I cancel or modify my order?',
-        answer: 'Orders can be cancelled or modified within 2 hours of placement. After that, the order is processed and cannot be changed. Contact us immediately if you need assistance.'
-    }
-];
+// const teamMembers = [
+//     {
+//         name: 'Sarah Johnson',
+//         role: 'Founder & CEO',
+//         image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400',
+//         email: 'sarah@minimaxmall.com'
+//     },
+//     {
+//         name: 'Michael Chen',
+//         role: 'Head of Design',
+//         image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400',
+//         email: 'michael@minimaxmall.com'
+//     },
+//     {
+//         name: 'Emily Rodriguez',
+//         role: 'Customer Success Manager',
+//         image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400',
+//         email: 'emily@minimaxmall.com'
+//     },
+//     {
+//         name: 'David Thompson',
+//         role: 'Operations Director',
+//         image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400',
+//         email: 'david@minimaxmall.com'
+//     }
+// ];
+//
+// const faqs = [
+//     {
+//         question: 'What are your shipping options?',
+//         answer: 'We offer standard shipping (5-7 business days) and express shipping (2-3 business days). Free shipping is available on orders over $50.'
+//     },
+//     {
+//         question: 'What is your return policy?',
+//         answer: 'We accept returns within 30 days of purchase. Items must be unused and in original packaging. Return shipping costs may apply unless the item is defective.'
+//     },
+//     {
+//         question: 'Do you offer custom tailoring services?',
+//         answer: 'Yes! We offer professional tailoring services for custom-fitted clothing. Visit our Booking page to schedule an appointment with our expert tailors.'
+//     },
+//     {
+//         question: 'How can I track my order?',
+//         answer: 'Once your order ships, you\'ll receive a tracking number via email. You can also check your order status in your profile under "Orders".'
+//     },
+//     {
+//         question: 'What payment methods do you accept?',
+//         answer: 'We accept all major credit cards (Visa, MasterCard, American Express), PayPal, and Apple Pay for your convenience.'
+//     },
+//     {
+//         question: 'Do you have a physical store?',
+//         answer: 'Yes, we have a showroom at our headquarters. Visit us at 123 Fashion Street, New York, NY 10001. We recommend booking an appointment for personalized service.'
+//     },
+//     {
+//         question: 'How do I care for my tailored garments?',
+//         answer: 'Each garment comes with specific care instructions. Generally, we recommend dry cleaning for tailored pieces. Avoid machine washing unless specified on the care label.'
+//     },
+//     {
+//         question: 'Can I cancel or modify my order?',
+//         answer: 'Orders can be cancelled or modified within 2 hours of placement. After that, the order is processed and cannot be changed. Contact us immediately if you need assistance.'
+//     }
+// ];
 
 export function Contact() {
     const [formData, setFormData] = useState({
@@ -117,8 +117,8 @@ export function Contact() {
                                 </div>
                                 <h3 className="font-bold text-lg mb-2">Visit Us</h3>
                                 <p className="text-sm text-muted-foreground">
-                                    123 Fashion Street<br />
-                                    New York, NY 10001
+                                    Adenta Housing<br />
+                                    Christ Apostolic Church
                                 </p>
                             </div>
                         </CardContent>
@@ -132,8 +132,8 @@ export function Contact() {
                                 </div>
                                 <h3 className="font-bold text-lg mb-2">Call Us</h3>
                                 <p className="text-sm text-muted-foreground">
-                                    +1 (555) 123-4567<br />
-                                    Mon-Fri 9am-6pm EST
+                                    0544701851<br />
+                                    0248167891
                                 </p>
                             </div>
                         </CardContent>
@@ -147,8 +147,8 @@ export function Contact() {
                                 </div>
                                 <h3 className="font-bold text-lg mb-2">Email Us</h3>
                                 <p className="text-sm text-muted-foreground">
-                                    support@minimaxmall.com<br />
-                                    info@minimaxmall.com
+                                    Threadzbigaskins@gmail.com<br />
+                                    support@threadzbigskins.com
                                 </p>
                             </div>
                         </CardContent>
@@ -162,8 +162,9 @@ export function Contact() {
                                 </div>
                                 <h3 className="font-bold text-lg mb-2">Business Hours</h3>
                                 <p className="text-sm text-muted-foreground">
-                                    Mon-Fri: 9am-6pm<br />
-                                    Sat: 10am-4pm
+                                    Mon-Fri: 9AM-7PM<br />
+                                    Sat: 10AM-5PM
+                                    Sun: By Appointment
                                 </p>
                             </div>
                         </CardContent>
@@ -307,65 +308,65 @@ export function Contact() {
                 </div>
 
                 {/* Team Section */}
-                <div className="mb-16 py-16 bg-gradient-to-br from-primary/5 via-transparent to-primary/5 rounded-3xl">
-                    <div className="container mx-auto px-4">
-                        <div className="mb-12 text-center">
-                            <h2 className="text-4xl font-bold mb-4">Meet Our Team</h2>
-                            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                                The passionate people behind Threadz BigAskins
-                            </p>
-                        </div>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                            {teamMembers.map((member) => (
-                                <Card key={member.name} className="overflow-hidden group hover:shadow-2xl transition-all duration-300">
-                                    <div className="aspect-square overflow-hidden relative">
-                                        <img
-                                            src={member.image}
-                                            alt={member.name}
-                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                                        />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                                    </div>
-                                    <CardContent className="pt-4 pb-6">
-                                        <h3 className="font-bold text-lg mb-1">{member.name}</h3>
-                                        <p className="text-sm text-primary font-medium mb-3">{member.role}</p>
-                                        <a
-                                            href={`mailto:${member.email}`}
-                                            className="text-xs text-muted-foreground hover:text-primary transition-colors flex items-center gap-1"
-                                        >
-                                            <Mail className="h-3 w-3" />
-                                            {member.email}
-                                        </a>
-                                    </CardContent>
-                                </Card>
-                            ))}
-                        </div>
-                    </div>
-                </div>
+                {/*<div className="mb-16 py-16 bg-gradient-to-br from-primary/5 via-transparent to-primary/5 rounded-3xl">*/}
+                {/*    <div className="container mx-auto px-4">*/}
+                {/*        <div className="mb-12 text-center">*/}
+                {/*            <h2 className="text-4xl font-bold mb-4">Meet Our Team</h2>*/}
+                {/*            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">*/}
+                {/*                The passionate people behind Threadz BigAskins*/}
+                {/*            </p>*/}
+                {/*        </div>*/}
+                {/*        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">*/}
+                {/*            {teamMembers.map((member) => (*/}
+                {/*                <Card key={member.name} className="overflow-hidden group hover:shadow-2xl transition-all duration-300">*/}
+                {/*                    <div className="aspect-square overflow-hidden relative">*/}
+                {/*                        <img*/}
+                {/*                            src={member.image}*/}
+                {/*                            alt={member.name}*/}
+                {/*                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"*/}
+                {/*                        />*/}
+                {/*                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />*/}
+                {/*                    </div>*/}
+                {/*                    <CardContent className="pt-4 pb-6">*/}
+                {/*                        <h3 className="font-bold text-lg mb-1">{member.name}</h3>*/}
+                {/*                        <p className="text-sm text-primary font-medium mb-3">{member.role}</p>*/}
+                {/*                        <a*/}
+                {/*                            href={`mailto:${member.email}`}*/}
+                {/*                            className="text-xs text-muted-foreground hover:text-primary transition-colors flex items-center gap-1"*/}
+                {/*                        >*/}
+                {/*                            <Mail className="h-3 w-3" />*/}
+                {/*                            {member.email}*/}
+                {/*                        </a>*/}
+                {/*                    </CardContent>*/}
+                {/*                </Card>*/}
+                {/*            ))}*/}
+                {/*        </div>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
 
                 {/* FAQs Section */}
-                <Card className="shadow-xl">
-                    <CardHeader className="bg-gradient-to-br from-primary/5 to-transparent pb-8">
-                        <CardTitle className="text-4xl font-bold">Frequently Asked Questions</CardTitle>
-                        <CardDescription className="text-lg mt-2">
-                            Find answers to common questions about our products and services
-                        </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                        <Accordion type="single" collapsible className="w-full">
-                            {faqs.map((faq, index) => (
-                                <AccordionItem key={index} value={`item-${index}`}>
-                                    <AccordionTrigger className="text-left">
-                                        {faq.question}
-                                    </AccordionTrigger>
-                                    <AccordionContent className="text-muted-foreground">
-                                        {faq.answer}
-                                    </AccordionContent>
-                                </AccordionItem>
-                            ))}
-                        </Accordion>
-                    </CardContent>
-                </Card>
+                {/*<Card className="shadow-xl">*/}
+                {/*    <CardHeader className="bg-gradient-to-br from-primary/5 to-transparent pb-8">*/}
+                {/*        <CardTitle className="text-4xl font-bold">Frequently Asked Questions</CardTitle>*/}
+                {/*        <CardDescription className="text-lg mt-2">*/}
+                {/*            Find answers to common questions about our products and services*/}
+                {/*        </CardDescription>*/}
+                {/*    </CardHeader>*/}
+                {/*    <CardContent>*/}
+                {/*        <Accordion type="single" collapsible className="w-full">*/}
+                {/*            {faqs.map((faq, index) => (*/}
+                {/*                <AccordionItem key={index} value={`item-${index}`}>*/}
+                {/*                    <AccordionTrigger className="text-left">*/}
+                {/*                        {faq.question}*/}
+                {/*                    </AccordionTrigger>*/}
+                {/*                    <AccordionContent className="text-muted-foreground">*/}
+                {/*                        {faq.answer}*/}
+                {/*                    </AccordionContent>*/}
+                {/*                </AccordionItem>*/}
+                {/*            ))}*/}
+                {/*        </Accordion>*/}
+                {/*    </CardContent>*/}
+                {/*</Card>*/}
             </div>
         </div>
     );
