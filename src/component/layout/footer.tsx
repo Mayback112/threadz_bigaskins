@@ -76,7 +76,7 @@ export function Footer() {
                 </div>
 
                 <div className="mt-8 border-t pt-8 text-center text-sm text-muted-foreground">
-                    <p>&copy; 2024 Threadz BigAskins. All rights reserved.</p>
+                    <p>&copy; 2025 Threadz BigAskins. All rights reserved.</p>
                 </div>
             </div>
         </footer>
