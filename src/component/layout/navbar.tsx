@@ -53,10 +53,7 @@ export function Navbar() {
                 <div className="flex h-16 items-center justify-between">
                     {/* Logo */}
                     <Link to="/" className="flex items-center space-x-2">
-                        <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary text-primary-foreground">
-                            <span className="text-lg font-bold">TB</span>
-                        </div>
-                        <span className="hidden text-lg font-bold sm:inline-block">Threadz BigAskins</span>
+                        <span className="text-lg font-bold">Threadz BigAskins</span>
                     </Link>
 
                     {/* Desktop Navigation */}
