@@ -2,7 +2,7 @@
 // If VITE_API_BASE_URL is empty string, use empty (for Vite proxy), otherwise use the value or fallback
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL !== undefined 
   ? import.meta.env.VITE_API_BASE_URL 
-  : 'http://localhost:8080'
+  : 'https://modix-market-2f56bf35c2c9.herokuapp.com'
 
 // Debug log
 console.log('🔧 API Configuration:', {
