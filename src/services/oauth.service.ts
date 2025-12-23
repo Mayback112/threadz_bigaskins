@@ -8,7 +8,7 @@
  */
 export function getTenantId(): string {
   // Hardcoded tenant ID - can be made dynamic based on subdomain or user selection
-  return 'ten_001'
+  return 'ten_002'
 }
 
 /**
@@ -38,8 +38,8 @@ export function initiateOAuthLogin(provider: string): void {
   const tenantId = getTenantId()
   
   // Log for debugging
-  console.log('=== OAuth Login Debug ===')
-  console.log('✓ Initiating OAuth with tenant ID:', tenantId)
+  // console.log('=== OAuth Login Debug ===')
+  // console.log('✓ Initiating OAuth with tenant ID:', tenantId)
   
   // Get backend URL
   const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080'

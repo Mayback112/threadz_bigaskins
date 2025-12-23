@@ -12,6 +12,11 @@ dist
 dist-ssr
 *.local
 
+# Environment variables (using single .env file for all environments)
+# .env file is committed to the repository
+# Only ignore .env.local for local overrides
+.env.local
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
