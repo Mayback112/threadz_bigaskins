@@ -8,7 +8,7 @@
  */
 export function getTenantId(): string {
   // Hardcoded tenant ID - can be made dynamic based on subdomain or user selection
-  return 'ten_002'
+  return 'ten_001'
 }
 
 /**
