@@ -34,6 +34,12 @@ export interface CustomerPasswordResetWithOtpRequest {
   confirmPassword: string
 }
 
+export interface CustomerPasswordResetRequest {
+  email: string
+  newPassword: string
+  confirmPassword: string
+}
+
 // Response Types
 export interface LoginResponse {
   accessToken: string
@@ -94,7 +100,15 @@ export const authService = {
 
   // Reset password with OTP
   async resetPasswordWithOtp(data: CustomerPasswordResetWithOtpRequest): Promise<void> {
-    return api.post('/api/customer/auth/reset-password-with-otp', data)
+    return api.post('/api/customer/auth/reset-password', data)
+  },
+
+  /**
+   * @deprecated Use forgotPassword and resetPasswordWithOtp instead
+   * Direct password reset without OTP verification
+   */
+  async resetPasswordDirect(data: CustomerPasswordResetRequest): Promise<void> {
+    return api.post('/api/customer/auth/reset-password-direct', data)
   },
 
   // Get customer profile
