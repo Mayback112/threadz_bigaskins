@@ -2,16 +2,7 @@
 // If VITE_API_BASE_URL is empty string, use empty (for Vite proxy), otherwise use the value or fallback
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL !== undefined 
   ? import.meta.env.VITE_API_BASE_URL 
-  : 'https://modix-market-2f56bf35c2c9.herokuapp.com'
-
-// Debug log
-console.log('🔧 API Configuration:', {
-  'VITE_API_BASE_URL (env)': import.meta.env.VITE_API_BASE_URL,
-  'VITE_API_BASE_URL typeof': typeof import.meta.env.VITE_API_BASE_URL,
-  'VITE_API_BASE_URL === undefined': import.meta.env.VITE_API_BASE_URL === undefined,
-  'API_BASE_URL (computed)': API_BASE_URL,
-  'Using proxy?': API_BASE_URL === '' || API_BASE_URL === '/'
-})
+  : 'https://modixmarket.online'
 
 // API Response Types
 export interface ApiResponse<T> {
@@ -61,14 +52,6 @@ async function apiRequest<T>(
     const data = await response.json()
 
     if (!response.ok) {
-      // Log full error response for debugging
-      console.error('API Error Response:', {
-        status: response.status,
-        statusText: response.statusText,
-        data: data,
-        url: url
-      })
-      
       // Extract detailed error message with status code
       const errorMessage = data.message || data.error || data.details || response.statusText || 'Unknown error'
       const statusPrefix = `HTTP ${response.status}`
@@ -84,12 +67,6 @@ async function apiRequest<T>(
 
     return data
   } catch (error: any) {
-    console.error('API Request Error:', error)
-    console.error('Error details:', {
-      message: error.message,
-      url: url,
-      method: config.method
-    })
     throw error
   }
 }

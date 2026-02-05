@@ -71,7 +71,6 @@ export function OAuthCallback() {
                 // Redirect to home and reload
                 window.location.href = '/';
             } catch (err: any) {
-                console.error('OAuth callback error:', err);
                 setError(err.message || 'Authentication failed');
                 
                 toast({

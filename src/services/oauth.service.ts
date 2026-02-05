@@ -37,28 +37,13 @@ export function initiateOAuthLogin(provider: string): void {
   // Use hardcoded tenant ID
   const tenantId = getTenantId()
   
-  // Log for debugging
-  // console.log('=== OAuth Login Debug ===')
-  // console.log('✓ Initiating OAuth with tenant ID:', tenantId)
-  
-  // Get backend URL
-  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080'
-  const backendUrl = apiBaseUrl.replace(/\/api$/, '')
-  
   // Build OAuth URL with tenant ID as query parameter
   const oauthUrl = buildOAuthUrl(provider)
   
-  console.log('✓ Backend URL:', backendUrl)
-  console.log('✓ Full OAuth URL:', oauthUrl)
-  
   // Store tenant ID for later use (in case needed after callback)
   sessionStorage.setItem('pendingTenantId', tenantId)
-  console.log('✓ Tenant ID stored in sessionStorage')
   
   // Redirect to backend OAuth endpoint with tenant ID parameter
-  console.log('✓ Redirecting now to:', oauthUrl)
-  console.log('========================')
-  
   window.location.href = oauthUrl
 }
 
@@ -67,11 +52,7 @@ export function initiateOAuthLogin(provider: string): void {
  * This is called when user is redirected back from OAuth provider
  */
 export function handleOAuthCallback(): void {
-  // Retrieve stored tenant ID if needed
-  const tenantId = sessionStorage.getItem('pendingTenantId')
-  console.log('OAuth callback - Tenant ID:', tenantId)
-  
-  // Clean up
+  // Clean up stored tenant ID
   sessionStorage.removeItem('pendingTenantId')
 }
 

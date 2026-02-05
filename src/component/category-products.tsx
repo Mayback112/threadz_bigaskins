@@ -22,25 +22,14 @@ export function CategoryProducts() {
     useEffect(() => {
         const fetchProducts = async () => {
             if (!decodedCategory) {
-                console.log('❌ No decodedCategory available');
                 return;
             }
-            
-            console.log('🔍 Category Products Debug:');
-            console.log('  - URL param (raw):', category);
-            console.log('  - Decoded category:', decodedCategory);
-            console.log('  - Display name:', categoryName);
             
             try {
                 setIsLoading(true);
                 
                 // Fetch all products
                 const allProducts = await productService.getAllProducts();
-                console.log('  - Total products fetched:', allProducts.length);
-                
-                // Log unique categories from all products
-                const uniqueCategories = [...new Set(allProducts.map(p => p.category))];
-                console.log('  - Available categories:', uniqueCategories);
                 
                 // Find products where category starts with or contains the parent category
                 // This handles hierarchical categories (e.g., "Clothing & Accessories > Men's Shirts")
@@ -55,21 +44,8 @@ export function CategoryProducts() {
                            productCategory.startsWith(searchCategory + '-');
                 });
                 
-                console.log('  - Products found with parent match:', categoryProducts.length);
-                
-                if (categoryProducts.length > 0) {
-                    console.log('  - Sample product categories:');
-                    categoryProducts.slice(0, 5).forEach(p => {
-                        console.log('    •', p.category, '-', p.name);
-                    });
-                    console.log('✅ Products found:', categoryProducts.length, 'products');
-                } else {
-                    console.log('⚠️ No products found for category:', decodedCategory);
-                }
-                
                 setProducts(categoryProducts);
             } catch (error: any) {
-                console.error('❌ Failed to fetch products:', error);
                 toast({
                     title: 'Error',
                     description: 'Failed to load products. Please try again later.',

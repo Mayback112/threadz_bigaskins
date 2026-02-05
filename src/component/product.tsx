@@ -18,7 +18,6 @@ export function Products() {
                 setProducts(allProducts);
                 setFeaturedProducts(allProducts.filter(p => p.isFeatured));
             } catch (error: any) {
-                console.error('Failed to fetch products:', error);
                 toast({
                     title: 'Error',
                     description: 'Failed to load products. Please try again later.',

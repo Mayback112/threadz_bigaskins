@@ -48,7 +48,6 @@ export default function PaymentSuccessPage() {
                     navigate('/cart');
                 }
             } catch (error: any) {
-                console.error('Payment verification error:', error);
                 toast({
                     title: 'Verification Error',
                     description: 'Failed to verify payment. Please contact support.',

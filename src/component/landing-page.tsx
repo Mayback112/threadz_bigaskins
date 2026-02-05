@@ -56,7 +56,6 @@ export function Home() {
                 const products = await productService.getNewArrivals();
                 setFeaturedProducts(products);
             } catch (error: any) {
-                console.error('Failed to fetch products:', error);
                 toast({
                     title: 'Error',
                     description: 'Failed to load products.',
@@ -97,7 +96,6 @@ export function Home() {
                 
                 setCategories(selectedCategories);
             } catch (error: any) {
-                console.error('Failed to fetch categories:', error);
                 toast({
                     title: 'Error',
                     description: 'Failed to load categories.',

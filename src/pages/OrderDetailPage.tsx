@@ -28,7 +28,6 @@ export default function OrderDetailPage() {
                 const orderData = await orderService.getOrderById(orderId);
                 setOrder(orderData);
             } catch (error: any) {
-                console.error('Failed to fetch order:', error);
                 toast({
                     title: 'Error',
                     description: 'Failed to load order details.',

@@ -84,7 +84,6 @@ export function Checkout() {
             }
 
         } catch (error: any) {
-            console.error('Checkout error:', error);
             toast({
                 title: 'Order Failed',
                 description: error.message || 'Failed to process order. Please try again.',

@@ -70,7 +70,6 @@ export function Register() {
 
             setShowOtpInput(true);
         } catch (error: any) {
-            console.error('Registration error:', error);
             toast({
                 title: 'Registration Failed',
                 description: error.message || 'An error occurred during registration',
@@ -98,7 +97,6 @@ export function Register() {
 
             navigate('/login');
         } catch (error: any) {
-            console.error('OTP verification error:', error);
             toast({
                 title: 'Verification Failed',
                 description: error.message || 'Invalid verification code',

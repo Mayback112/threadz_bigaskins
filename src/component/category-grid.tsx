@@ -87,7 +87,6 @@ export function CategoryGrid({ maxCategories }: CategoryGridProps) {
                 
                 setCategories(limitedCategories);
             } catch (error: any) {
-                console.error('Failed to fetch categories:', error);
                 toast({
                     title: 'Error',
                     description: 'Failed to load categories.',

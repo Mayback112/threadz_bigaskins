@@ -37,7 +37,6 @@ export function ForgotPassword() {
 
             setStep('otp');
         } catch (error: any) {
-            console.error('Forgot password error:', error);
             toast({
                 title: 'Error',
                 description: error.message || 'Unable to send verification code',
@@ -96,7 +95,6 @@ export function ForgotPassword() {
 
             setStep('success');
         } catch (error: any) {
-            console.error('Password reset error:', error);
             toast({
                 title: 'Password Reset Failed',
                 description: error.message || 'Unable to reset password',

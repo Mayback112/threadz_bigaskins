@@ -33,7 +33,6 @@ export function useThemeSync() {
     // Listen for system theme changes
     const handleChange = (e: MediaQueryListEvent) => {
       applyTheme(e.matches)
-      console.log(`Theme switched to: ${e.matches ? 'dark' : 'light'}`)
     }
     
     mediaQuery.addEventListener('change', handleChange)

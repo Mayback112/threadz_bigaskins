@@ -30,7 +30,6 @@ export function Profile() {
                 const userData = authService.convertToStoredUser(profile);
                 updateUser(userData);
             } catch (error: any) {
-                console.error('Failed to fetch profile:', error);
                 // If token is invalid, logout
                 if (error.status === 401 || error.status === 403) {
                     logout();
@@ -58,7 +57,6 @@ export function Profile() {
                 const response = await orderService.getMyOrders(0, 20);
                 setOrders(response.orders);
             } catch (error: any) {
-                console.error('Failed to fetch orders:', error);
                 toast({
                     title: 'Error',
                     description: 'Failed to load orders. Please try again later.',
@@ -89,7 +87,6 @@ export function Profile() {
             
             navigate('/');
         } catch (error: any) {
-            console.error('Logout error:', error);
             // Even if backend call fails, clear local state
             logout();
             navigate('/');

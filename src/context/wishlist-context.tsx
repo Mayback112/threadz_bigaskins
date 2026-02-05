@@ -37,7 +37,7 @@ export function WishlistProvider({ children }: { children: React.ReactNode }) {
             const response = await wishlistService.getMyWishlist();
             setWishlistItems(response.items);
         } catch (error) {
-            console.error('Failed to fetch wishlist:', error);
+            // Silently fail
         } finally {
             setIsLoading(false);
         }
@@ -52,7 +52,6 @@ export function WishlistProvider({ children }: { children: React.ReactNode }) {
             await wishlistService.addToWishlist(productId);
             await refreshWishlist();
         } catch (error: any) {
-            console.error('Failed to add to wishlist:', error);
             throw error;
         }
     };
@@ -64,7 +63,6 @@ export function WishlistProvider({ children }: { children: React.ReactNode }) {
             await wishlistService.removeFromWishlist(productId);
             await refreshWishlist();
         } catch (error) {
-            console.error('Failed to remove from wishlist:', error);
             throw error;
         }
     };

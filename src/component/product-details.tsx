@@ -41,7 +41,6 @@ export function ProductDetail() {
                     setVariantOptions(options);
                 }
             } catch (error: any) {
-                console.error('Failed to fetch product:', error);
                 toast({
                     title: 'Error',
                     description: 'Failed to load product details.',

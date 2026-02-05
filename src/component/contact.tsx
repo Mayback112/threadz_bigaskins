@@ -117,8 +117,8 @@ export function Contact() {
                                 </div>
                                 <h3 className="font-bold text-lg mb-2">Visit Us</h3>
                                 <p className="text-sm text-muted-foreground">
-                                    Adenta Housing<br />
-                                    Christ Apostolic Church
+                                    Adenta Housing Down<br />
+                                    Okpoti St, Adenta Municipality
                                 </p>
                             </div>
                         </CardContent>
@@ -274,13 +274,14 @@ export function Contact() {
                         <CardContent>
                             <div className="aspect-video rounded-lg overflow-hidden bg-muted mb-4">
                                 <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.9476519598093!2d-73.99185268459253!3d40.74844097932847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1234567890123"
+                                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Threadz+BigAskins,Adenta+Housing+Down+Okpoti+St+Adenta+Municipality+Ghana&zoom=17"
                                     width="100%"
                                     height="100%"
                                     style={{ border: 0 }}
                                     allowFullScreen
                                     loading="lazy"
                                     referrerPolicy="no-referrer-when-downgrade"
+                                    title="Threadz BigAskins Location - Adenta Housing Down"
                                 ></iframe>
                             </div>
                             <div className="space-y-3 text-sm">
@@ -288,7 +289,7 @@ export function Contact() {
                                     <MapPin className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                                     <div>
                                         <p className="font-semibold">Address</p>
-                                        <p className="text-muted-foreground">123 Fashion Street, Suite 500<br />New York, NY 10001</p>
+                                        <p className="text-muted-foreground">Adenta Housing Down<br />Okpoti St, Adenta Municipality<br />PR4X+QF Adenta, Ghana</p>
                                     </div>
                                 </div>
                                 <div className="flex items-start gap-3">
@@ -296,9 +297,9 @@ export function Contact() {
                                     <div>
                                         <p className="font-semibold">Store Hours</p>
                                         <p className="text-muted-foreground">
-                                            Monday - Friday: 9:00 AM - 6:00 PM<br />
-                                            Saturday: 10:00 AM - 4:00 PM<br />
-                                            Sunday: Closed
+                                            Monday - Friday: 9:00 AM - 7:00 PM<br />
+                                            Saturday: 10:00 AM - 5:00 PM<br />
+                                            Sunday: By Appointment
                                         </p>
                                     </div>
                                 </div>
