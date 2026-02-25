@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Minus, Plus, ShoppingCart, Heart, Share2, Loader2 } from 'lucide-react';
+import { Minus, Plus, ShoppingCart, Heart, Share2, Loader2, AlertCircle } from 'lucide-react';
 import { Button } from '@/component/ui/button';
 import { Badge } from '@/component/ui/badge';
 import { Separator } from '@/component/ui/separator';
@@ -83,6 +83,16 @@ export function ProductDetail() {
     }
 
     const handleAddToCart = () => {
+        // Validate selling price
+        if (!product.discountedPrice || product.discountedPrice <= 0) {
+            toast({
+                title: 'Cannot Add to Cart',
+                description: 'This product\'s price is not set. Please contact support.',
+                variant: 'destructive',
+            });
+            return;
+        }
+
         // Check if product requires variant selection
         if (product.hasVariants && variantOptions.length > 0) {
             const missingOptions = variantOptions.filter(opt => !selectedVariant[opt.optionName]);
@@ -105,9 +115,19 @@ export function ProductDetail() {
             return;
         }
 
-        // For now, we'll pass the product info to cart
-        // Note: You might need to update cart context to handle the new Product type
-        addToCart(product as any, quantity, selectedVariant['Size'] || '', selectedVariant['Color'] || '');
+        // Find the actual variant ID based on selected options
+        let variantId: string | undefined = undefined;
+        if (product.hasVariants && product.variants && product.variants.length > 0) {
+            const matchingVariant = product.variants.find(v => {
+                return Object.entries(selectedVariant).every(([key, value]) => 
+                    v.optionValues[key] === value
+                );
+            });
+            variantId = matchingVariant?.id;
+        }
+
+        // Pass variantId to cart
+        addToCart(product as any, quantity, selectedVariant['Size'] || '', selectedVariant['Color'] || '', variantId);
         toast({
             title: 'Added to Cart',
             description: `${quantity} × ${product.name} added to your cart`,
@@ -189,6 +209,21 @@ export function ProductDetail() {
 
                     {/* Product Info */}
                     <div className="space-y-6">
+                        {/* Warning Banner for Missing Selling Price */}
+                        {(!product.discountedPrice || product.discountedPrice <= 0) && (
+                            <div className="flex items-center gap-2 bg-amber-50 dark:bg-amber-950 p-4 rounded-lg border border-amber-300 dark:border-amber-700">
+                                <AlertCircle className="w-5 h-5 text-amber-600 dark:text-amber-400 flex-shrink-0" />
+                                <div className="flex-1">
+                                    <p className="text-sm font-semibold text-amber-900 dark:text-amber-100">
+                                        Product Currently Unavailable
+                                    </p>
+                                    <p className="text-xs text-amber-700 dark:text-amber-300 mt-1">
+                                        This product is temporarily unavailable for purchase. Please check back later or contact support.
+                                    </p>
+                                </div>
+                            </div>
+                        )}
+                        
                         <div>
                             <div className="mb-2 flex items-center gap-2">
                                 <Badge variant="secondary">{product.category}</Badge>
@@ -292,10 +327,13 @@ export function ProductDetail() {
                                 className="flex-1" 
                                 size="lg" 
                                 onClick={handleAddToCart}
-                                disabled={!product.inStock}
+                                disabled={!product.inStock || !product.discountedPrice || product.discountedPrice <= 0}
+                                title={!product.discountedPrice || product.discountedPrice <= 0 ? "Product price not set" : undefined}
                             >
                                 <ShoppingCart className="mr-2 h-5 w-5" />
-                                {product.inStock ? 'Add to Cart' : 'Out of Stock'}
+                                {!product.discountedPrice || product.discountedPrice <= 0 
+                                    ? 'Price Not Set' 
+                                    : product.inStock ? 'Add to Cart' : 'Out of Stock'}
                             </Button>
                             <Button 
                                 variant={inWishlist ? "default" : "outline"} 
