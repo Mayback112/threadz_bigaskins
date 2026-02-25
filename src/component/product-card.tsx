@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import { ShoppingCart, Heart } from 'lucide-react';
 import { Button } from '@/component/ui/button';
 import { Badge } from '@/component/ui/badge';
@@ -15,6 +16,8 @@ export function ProductCard({ product }: ProductCardProps) {
     const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
     const { toast } = useToast();
     const inWishlist = isInWishlist(product.id);
+    const [isHovered, setIsHovered] = useState(false);
+    const secondImage = product.imageUrls && product.imageUrls.length > 1 ? product.imageUrls[1] : null;
 
     // Calculate discount percentage from discountedPrice vs costPrice
     const discount = product.discountedPrice > 0 && product.costPrice > product.discountedPrice
@@ -53,14 +56,28 @@ export function ProductCard({ product }: ProductCardProps) {
     };
 
     return (
-        <Card className="group overflow-hidden transition-shadow hover:shadow-lg">
+        <Card className="group overflow-hidden transition-shadow hover:shadow-xl rounded-2xl"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+        >
             <Link to={`/product/${product.id}`}>
-                <div className="relative aspect-square overflow-hidden bg-muted">
+                <div className="relative aspect-square overflow-hidden bg-muted rounded-t-2xl">
                     <img
                         src={product.mainImageUrl}
                         alt={product.name}
-                        className="h-full w-full object-cover transition-transform group-hover:scale-105"
+                        className={`absolute inset-0 h-full w-full object-cover transition-all duration-500 ${
+                            secondImage
+                                ? isHovered ? 'opacity-0' : 'opacity-100'
+                                : isHovered ? 'scale-105' : 'scale-100'
+                        }`}
                     />
+                    {secondImage && (
+                        <img
+                            src={secondImage}
+                            alt={`${product.name} - alternate view`}
+                            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${isHovered ? 'opacity-100' : 'opacity-0'}`}
+                        />
+                    )}
                     {discount > 0 && (
                         <Badge className="absolute right-2 top-2" variant="destructive">
                             -{discount}%
@@ -116,9 +133,15 @@ export function ProductCard({ product }: ProductCardProps) {
 
             <CardFooter className="p-4 pt-0">
                 <Link to={`/product/${product.id}`} className="w-full">
-                    <Button className="w-full" size="sm" disabled={!product.inStock}>
+                    <Button 
+                        className="w-full" 
+                        size="sm" 
+                        disabled={!product.inStock || !product.discountedPrice || product.discountedPrice <= 0}
+                    >
                         <ShoppingCart className="mr-2 h-4 w-4" />
-                        {product.inStock ? 'Add to Cart' : 'Out of Stock'}
+                        {!product.discountedPrice || product.discountedPrice <= 0 
+                            ? 'Price Not Set' 
+                            : product.inStock ? 'Add to Cart' : 'Out of Stock'}
                     </Button>
                 </Link>
             </CardFooter>
