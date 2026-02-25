@@ -8,7 +8,12 @@ export function Footer() {
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
                     {/* Company Info */}
                     <div>
-                        <div className="flex items-center space-x-2 mb-4">
+                        <div className="flex items-center space-x-3 mb-4">
+                            <img
+                                src="/logo.jpeg"
+                                alt="Threadz BigAskins Logo"
+                                className="h-12 w-12 rounded-full object-cover"
+                            />
                             <span className="text-lg font-bold">Threadz BigAskins</span>
                         </div>
                         <p className="text-sm text-muted-foreground mb-4">
@@ -75,8 +80,19 @@ export function Footer() {
                     </div>
                 </div>
 
-                <div className="mt-8 border-t pt-8 text-center text-sm text-muted-foreground">
+                <div className="mt-8 border-t pt-8 text-center text-sm text-muted-foreground space-y-2">
                     <p>&copy; 2025 Threadz BigAskins. All rights reserved.</p>
+                    <p>
+                        Powered by{' '}
+                        <a
+                            href="https://modixmarket.online"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-semibold text-primary hover:underline"
+                        >
+                            Modix Market
+                        </a>
+                    </p>
                 </div>
             </div>
         </footer>
