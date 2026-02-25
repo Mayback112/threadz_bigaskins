@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Button } from '@/component/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/component/ui/card';
@@ -14,8 +14,20 @@ export default function PaymentSuccessPage() {
     const [isVerifying, setIsVerifying] = useState(true);
     const [paymentVerified, setPaymentVerified] = useState(false);
     const [redirectCountdown, setRedirectCountdown] = useState(5);
+    
+    // Use ref to prevent duplicate API calls in React StrictMode
+    const verificationStarted = useRef(false);
 
     useEffect(() => {
+        // Check if already started - exit early if true
+        if (verificationStarted.current) {
+            console.log('Payment verification already started, skipping duplicate call');
+            return;
+        }
+        
+        // Mark as started IMMEDIATELY
+        verificationStarted.current = true;
+        
         const verifyPayment = async () => {
             const reference = searchParams.get('reference');
             
@@ -28,6 +40,8 @@ export default function PaymentSuccessPage() {
                 navigate('/');
                 return;
             }
+
+            console.log('Verifying payment reference:', reference);
 
             try {
                 setIsVerifying(true);
@@ -60,7 +74,7 @@ export default function PaymentSuccessPage() {
         };
 
         verifyPayment();
-    }, [searchParams]);
+    }, []);
 
     useEffect(() => {
         if (paymentVerified && redirectCountdown > 0) {
