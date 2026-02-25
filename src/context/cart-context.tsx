@@ -2,6 +2,7 @@ import React, { createContext, useContext, useState } from 'react';
 
 export interface CartItem {
     product: any; // Accept both old and new product types
+    variantId?: string; // UUID of selected variant for backend API
     quantity: number;
     size: string;
     color: string;
@@ -9,7 +10,7 @@ export interface CartItem {
 
 interface CartContextType {
     items: CartItem[];
-    addToCart: (product: any, quantity: number, size: string, color: string) => void;
+    addToCart: (product: any, quantity: number, size: string, color: string, variantId?: string) => void;
     removeFromCart: (productId: string) => void;
     updateQuantity: (productId: string, quantity: number) => void;
     clearCart: () => void;
@@ -22,7 +23,7 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 export function CartProvider({ children }: { children: React.ReactNode }) {
     const [items, setItems] = useState<CartItem[]>([]);
 
-    const addToCart = (product: any, quantity: number, size: string, color: string) => {
+    const addToCart = (product: any, quantity: number, size: string, color: string, variantId?: string) => {
         setItems((prevItems) => {
             const existingItem = prevItems.find(
                 (item) => item.product.id === product.id && item.size === size && item.color === color
@@ -36,7 +37,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
                 );
             }
 
-            return [...prevItems, { product, quantity, size, color }];
+            return [...prevItems, { product, quantity, size, color, variantId }];
         });
     };
 
