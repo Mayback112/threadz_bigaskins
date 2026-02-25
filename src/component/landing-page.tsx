@@ -118,12 +118,11 @@ export function Home() {
                         <div className="flex flex-col justify-center space-y-6">
                             <div className="space-y-4">
                                 <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-                                    Discover Your Style with{' '}
-                                    <span className="text-primary">Premium Products</span>
+                                    Celebrate Your Culture with{' '}
+                                    <span className="text-primary">African Ladies Fashion</span>
                                 </h1>
                                 <p className="text-lg text-muted-foreground md:text-xl">
-                                    Shop the latest trends in fashion, electronics, and lifestyle.
-                                    Quality products delivered to your doorstep.
+                                    Explore our stunning collection of African tailored clothing — vibrant Ankara prints, Kente styles & more. Beautifully crafted and delivered to your doorstep.
                                 </p>
                             </div>
                             <div className="flex flex-wrap gap-4">
@@ -138,47 +137,39 @@ export function Home() {
                                     </Button>
                                 </Link>
                             </div>
-                            <div className="flex gap-8 pt-4">
-                                <div>
-                                    <div className="text-3xl font-bold">10K+</div>
-                                    <div className="text-sm text-muted-foreground">Happy Customers</div>
-                                </div>
-                                <div>
-                                    <div className="text-3xl font-bold">500+</div>
-                                    <div className="text-sm text-muted-foreground">Products</div>
-                                </div>
-                                <div>
-                                    <div className="text-3xl font-bold">4.8</div>
-                                    <div className="text-sm text-muted-foreground">Avg Rating</div>
-                                </div>
-                            </div>
                         </div>
-                        <div className="relative hidden lg:block">
-                            <div className="grid grid-cols-2 gap-4">
-                                <div className="space-y-4">
-                                    <img
-                                        src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600"
-                                        alt="Shopping"
-                                        className="rounded-lg object-cover w-full h-64"
-                                    />
-                                    <img
-                                        src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=600"
-                                        alt="Products"
-                                        className="rounded-lg object-cover w-full h-48"
-                                    />
-                                </div>
-                                <div className="mt-8 space-y-4">
-                                    <img
-                                        src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=600"
-                                        alt="Fashion"
-                                        className="rounded-lg object-cover w-full h-48"
-                                    />
-                                    <img
-                                        src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=600"
-                                        alt="Style"
-                                        className="rounded-lg object-cover w-full h-64"
-                                    />
-                                </div>
+                        <div className="relative hidden lg:flex items-center justify-center">
+                            {/* Decorative outer ring */}
+                            <div className="absolute w-[420px] h-[420px] rounded-full border-4 border-primary/30 animate-pulse" />
+                            {/* Decorative dashed ring */}
+                            <div className="absolute w-[460px] h-[460px] rounded-full border-2 border-dashed border-primary/20 rotate-45" />
+                            {/* Decorative dots top-left */}
+                            <div className="absolute top-4 left-4 grid grid-cols-3 gap-1.5">
+                                {[...Array(9)].map((_, i) => (
+                                    <div key={i} className="w-2 h-2 rounded-full bg-primary/40" />
+                                ))}
+                            </div>
+                            {/* Decorative dots bottom-right */}
+                            <div className="absolute bottom-4 right-4 grid grid-cols-3 gap-1.5">
+                                {[...Array(9)].map((_, i) => (
+                                    <div key={i} className="w-2 h-2 rounded-full bg-primary/40" />
+                                ))}
+                            </div>
+                            {/* Badge top-right */}
+                            <div className="absolute top-6 right-6 z-10 bg-primary text-primary-foreground text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
+                                ✨ New Collection
+                            </div>
+                            {/* Badge bottom-left */}
+                            <div className="absolute bottom-6 left-6 z-10 bg-background border border-primary/30 text-foreground text-xs font-semibold px-3 py-1.5 rounded-full shadow-md">
+                                🌍 African Fashion
+                            </div>
+                            {/* Main image */}
+                            <div className="relative w-[380px] h-[480px] rounded-3xl overflow-hidden shadow-2xl border-4 border-primary/20">
+                                <img
+                                    src="https://pub-b9015d3f3b5f48fabaf64561a9c4c341.r2.dev/modix-market-tenant-images/ten_001/products/5930def2-419b-441d-a6a6-b19dde1f39df/53714a06-b703-4257-8b2b-9d74a8273765-4SMS4361-min.jpg"
+                                    alt="African Ladies Fashion"
+                                    className="w-full h-full object-cover"
+                                />
                             </div>
                         </div>
                     </div>
