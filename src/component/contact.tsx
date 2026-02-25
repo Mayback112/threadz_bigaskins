@@ -274,14 +274,14 @@ export function Contact() {
                         <CardContent>
                             <div className="aspect-video rounded-lg overflow-hidden bg-muted mb-4">
                                 <iframe
-                                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Threadz+BigAskins,Adenta+Housing+Down+Okpoti+St+Adenta+Municipality+Ghana&zoom=17"
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63526.877780479204!2d-0.25507067094519187!3d5.65078449250126!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9d50df383221%3A0x680fae7fe04bdbac!2sThreadz_bigaskins!5e0!3m2!1sen!2sgh!4v1771980989888!5m2!1sen!2sgh"
                                     width="100%"
                                     height="100%"
                                     style={{ border: 0 }}
                                     allowFullScreen
                                     loading="lazy"
                                     referrerPolicy="no-referrer-when-downgrade"
-                                    title="Threadz BigAskins Location - Adenta Housing Down"
+                                    title="Threadz BigAskins Location"
                                 ></iframe>
                             </div>
                             <div className="space-y-3 text-sm">
