@@ -13,6 +13,7 @@ export interface ShippingAddress {
 // Single order request (backend creates one order per product)
 export interface CreateOrderRequest {
   productId: string
+  variantId?: string // UUID of selected variant (optional - for variant products)
   quantity?: number
   phoneNumber?: string
   shippingCountry: string
