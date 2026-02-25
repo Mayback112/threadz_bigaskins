@@ -51,6 +51,7 @@ export function Checkout() {
             const orderPromises = items.map(item => 
                 orderService.createOrder({
                     productId: item.product.id,
+                    variantId: item.variantId || undefined,
                     quantity: item.quantity,
                     phoneNumber: phone,
                     shippingCountry: country,
@@ -84,9 +85,53 @@ export function Checkout() {
             }
 
         } catch (error: any) {
+            console.error('Checkout error:', error);
+            
+            let errorTitle = "Order Failed";
+            let errorDescription = error.message || "Unable to process your order. Please try again.";
+            
+            // Enhanced error handling for new backend validations
+            
+            // Handle selling price validation errors
+            if (error.message?.includes('selling price') || 
+                error.message?.includes('discounted price') ||
+                error.message?.includes('price configured')) {
+                errorTitle = "Product Price Not Set";
+                errorDescription = "One or more products in your cart don't have a valid selling price. " +
+                                  "Please remove them from cart or contact support.";
+            }
+            // Handle variant validation errors
+            else if (error.message?.includes('does not belong to') || 
+                     (error.message?.includes('variant') && error.message?.includes('product'))) {
+                errorTitle = "Invalid Product Variant";
+                errorDescription = "The selected product variant is invalid. Please refresh and try again.";
+            }
+            // Handle variant stock errors
+            else if (error.message?.includes('variant stock') || 
+                     error.message?.includes('Insufficient variant')) {
+                errorTitle = "Variant Out of Stock";
+                errorDescription = error.message + ". Please update your cart and try again.";
+            }
+            // Handle general stock errors
+            else if (error.message?.includes('Insufficient stock')) {
+                errorTitle = "Out of Stock";
+                errorDescription = error.message + ". Please update your cart and try again.";
+            }
+            // Handle product not found errors
+            else if (error.message?.includes('not found')) {
+                errorTitle = "Product Not Found";
+                errorDescription = "One or more products in your cart are no longer available.";
+            }
+            // Handle HTTP 400 validation errors
+            else if (error.response?.status === 400) {
+                errorTitle = "Validation Error";
+                errorDescription = error.response?.data?.message || error.message || 
+                                  "Please check your order details and try again.";
+            }
+            
             toast({
-                title: 'Order Failed',
-                description: error.message || 'Failed to process order. Please try again.',
+                title: errorTitle,
+                description: errorDescription,
                 variant: 'destructive',
             });
         } finally {
